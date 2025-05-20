@@ -14,22 +14,6 @@ Considerations:
 * The model is deployed using Ngrok and npm.
 
 
-Aquí tienes el mismo `README.md` traducido al inglés, seguido de cómo ignorar correctamente `credentials.json` en tu archivo `.gitignore`.
-
----
-
-## 🇬🇧 `README.md` in English
-
-# 🤖 Chatbot with OpenAI (GPT-3.5 Turbo)
-
-This project is a chatbot built with Node.js that uses the OpenAI API (`gpt-3.5-turbo`) to generate intelligent responses. It is designed to integrate with WhatsApp Business, allowing users to interact with the chatbot via WhatsApp messages.
-
-## 🧠 Features
-
-* **Integration with OpenAI GPT-3.5 Turbo**: Generates coherent and contextual responses using OpenAI’s language model.
-* **Modular JavaScript structure**: Organized codebase for easy maintenance and scalability.
-* **WhatsApp Business integration**: Enables communication with users through WhatsApp.
-* **Ngrok deployment**: Uses Ngrok to expose the local server to the internet for easy testing and development.
 
 ## Installation & Execution
 
