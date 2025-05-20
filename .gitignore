@@ -8,6 +8,8 @@ __pycache__/
 *.env
 .env
 node_modules/
+src/credentials/credentials.json
+src/credentials.json
 # Distribution / packaging
 .Python
 build/
