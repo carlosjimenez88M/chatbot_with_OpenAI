@@ -88,7 +88,7 @@ class MessageHandler {
        await this.sendLocation(to);
        break
       case 'option_6':
-        response = "Si esto es una emergencia, te invitamos a llamar a nuestra linea de atención"
+        response = "Si Necesita asesoria financiera juridica! 👨🏻‍💼"
         await this.sendContact(to);
       default: 
        response = "Lo siento, no entendí tu selección, Por Favor, elige una de las opciones del menú."
@@ -109,11 +109,11 @@ class MessageHandler {
     // const caption = '¡Esto es una video!';
     // const type = 'video';
 
-    const mediaUrl = 'https://s3.amazonaws.com/gndx.dev/medpet-file.pdf';
-    const caption = '¡Esto es un PDF!';
-    const type = 'document';
-
-    await whatsappService.sendMediaMessage(to, type, mediaUrl, caption);
+    // const mediaUrl = 'https://s3.amazonaws.com/gndx.dev/medpet-file.pdf';
+    // const caption = '¡Esto es un PDF!';
+    // const type = 'document';
+    //
+    // await whatsappService.sendMediaMessage(to, type, mediaUrl, caption);
   }
 
   completeAppointment(to) {
@@ -123,8 +123,8 @@ class MessageHandler {
     const userData = [
       to,
       appointment.name,
-      appointment.petName,
-      appointment.petType,
+      appointment.clientName,
+      appointment.clientType,
       appointment.reason,
       new Date().toISOString()
     ]
@@ -135,8 +135,8 @@ class MessageHandler {
     Resumen de tu cita:
     
     Nombre: ${appointment.name}
-    Nombre de la mascota: ${appointment.petName}
-    Tipo de mascota: ${appointment.petType}
+    Nombre del cliente: ${appointment.clientName}
+    Tipo de Cliente: ${appointment.clientType}
     Motivo: ${appointment.reason}
     
     Nos pondremos en contacto contigo pronto para confirmar la fecha y hora de tu cita.`
@@ -149,16 +149,16 @@ class MessageHandler {
     switch (state.step) {
       case 'name':
         state.name = message;
-        state.step = 'petName';
+        state.step = 'clientName';
         response = "Gracias, Ahora, ¿Cuál es  tu necesidad puntual?"
         break;
-      case 'petName':
-        state.petName = message;
-        state.step = 'petType';
-        response = '¿Qué tipo de mascota es? (por ejemplo: perro, gato, huron, etc.)'
+      case 'clientName':
+        state.clientName = message;
+        state.step = 'clientType';
+        response = '¿Qué tipo de asesoria necesitas? (por ejemplo: Inversión, Fiscal, CriptoMonedas, etc.)'
         break;
-      case 'petType':
-        state.petType = message;
+      case 'clientType':
+        state.clientType = message;
         state.step = 'reason';
         response = '¿Cuál es el motivo de la Consulta?';
         break;
@@ -194,31 +194,31 @@ class MessageHandler {
     const contact = {
       addresses: [
         {
-          street: "123 Calle de las Mascotas",
-          city: "Ciudad",
-          state: "Estado",
-          zip: "12345",
-          country: "País",
-          country_code: "PA",
+          street: "123 Calle de las Fianzas",
+          city: "Barranquilla",
+          state: "Atlantico",
+          zip: "080020",
+          country: "Colombia",
+          country_code: "CO",
           type: "WORK"
         }
       ],
       emails: [
         {
-          email: "contacto@medpet.com",
+          email: "contacto@nostradamusdata.com",
           type: "WORK"
         }
       ],
       name: {
-        formatted_name: "MedPet Contacto",
-        first_name: "MedPet",
+        formatted_name: "Nostradamus Contacto",
+        first_name: "Nostradamus",
         last_name: "Contacto",
         middle_name: "",
         suffix: "",
         prefix: ""
       },
       org: {
-        company: "MedPet",
+        company: "Nostradamus",
         department: "Atención al Cliente",
         title: "Representante"
       },
@@ -231,7 +231,7 @@ class MessageHandler {
       ],
       urls: [
         {
-          url: "https://www.medpet.com",
+          url: "https://www.Nostradamusdata.com",
           type: "WORK"
         }
       ]
@@ -241,10 +241,10 @@ class MessageHandler {
   }
 
   async sendLocation(to) {
-    const latitude = 6.2071694;
-    const longitude = -75.574607;
-    const name = 'Platzi Medellín';
-    const address = 'Cra. 43A #5A - 113, El Poblado, Medellín, Antioquia.'
+    const latitude = 11.005086;
+    const longitude = -74.811064;
+    const name = 'Nostradamus Barranquilla';
+    const address = 'Cra. 4$3-6, Alto Prado, Barranquilla, Atlantico.'
 
     await whatsappService.sendLocationMessage(to, latitude, longitude, name, address);
   }
